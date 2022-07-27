@@ -1,0 +1,11 @@
+#example data (http://ibi.zju.edu.cn/ricerelativesgd/)
+#genomes were cut according to the criterion of N50 = 1Mb
+
+1.sp4.pep;sp4.cds;sp4.gff;sp4.genome.fa
+Oryza sativa (indica group) and Oryza punctata
+
+2.sp2.pep;sp2.cds;sp2.gff
+Oryza sativa (japonica group)
+
+3.outgroup.pep;outgroup.cds
+Leersia perrieri
