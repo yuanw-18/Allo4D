@@ -1,4 +1,4 @@
-# Allo4D
+# Allo4D (Allotetraploid Dividing)
 Allo4D is a pipeline to distinguish allotetraploid subgenomes based scaffold level. 
 
 # Dependencies
@@ -43,23 +43,35 @@ R498Chr1.ctg1   indica_OsR498G0100002500.01.T01 52877   53327
 ```
 # How to run Allo4D ?
 
+## Step1: Align allotetraploid and diploid genome data and obtain their collinear relationship.
 ```
-#step1:Align allotetraploid and diploid genome data and obtain their collinear relationship.
-python Allo4Dalign.py -sp4pep sp4.pep -sp2pep sp2.pep -sp4gff sp4.gff -sp2gff sp2.gff -sp4cds sp4.cds -thread 40
+python Allo4Dalign.py -thread 40 \
+ -sp4pep sp4.pep -sp2pep sp2.pep \
+ -sp4gff sp4.gff -sp2gff sp2.gff \
+ -sp4cds sp4.cds
+```
 
-#step2:Select replicated gene pairs and construct clusters.
+## Step2: Select replicated gene pairs and construct clusters.
+```
 #find the ancient ks threshold according to the 1.Collinear/Ks_density.png. For example data,ks threshold = 0.5
 python Allo4Dcluster.py -kt 0.5 -sp4gff sp4.gff
+```
 
-#step3:Construct phylogenetic tree within clusters.
-python Allo4Dtree.py -sp2pep sp2.pep -sp4pep sp4.pep -outpep out.pep -sp2cds sp2.cds -sp4cds sp4.cds -outcds out.cds -thread 40
+## Step3: Construct phylogenetic tree within clusters.
+```
+python Allo4Dtree.py -thread 40 \
+ -sp2pep sp2.pep -sp4pep sp4.pep -outpep out.pep \
+ -sp2cds sp2.cds -sp4cds sp4.cds -outcds out.cds
+```
 
-#setp4:Divide subgenomes.
-python Allo4Ddivide.py -sp4gff sp4.gff -sp4genome sp4.genome.fa -sp4pep sp4.pep -sp4cds sp4.cds
+## Setp4:Divide subgenomes.
+```
+python Allo4Ddivide.py \
+ -sp4gff sp4.gff -sp4genome sp4.genome.fa \
+ -sp4pep sp4.pep -sp4cds sp4.cds
 ```
 
 # Output files (You can check in 5.result/)
-
 ```
   35144893 Jul 26 17:25 subA.cds
  343391956 Jul 26 17:25 subA.genome.fa
