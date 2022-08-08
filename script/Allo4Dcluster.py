@@ -8,7 +8,7 @@ import pandas as pd
 #print help information
 parser = argparse.ArgumentParser(description='Select replicated gene pairs and construct clusters.')
 parser.add_argument("-kt",help="the ks threshold of filtering ancient duplications")
-parser.add_argument("-sp4gff",help="input allotetraploid species gff file")
+parser.add_argument("-sp4bed",help="input allotetraploid species bed file")
 args = parser.parse_args()
 
 #dir
@@ -73,16 +73,16 @@ f1 = open(args.sp4gff,"r")
 f2 = open(path2 + "/sp4_sp2.collinearity.filter.num.1v2.all.sort","r")
 f3 = open(path2 + "/sp4_sp2.collinearity.filter.num.1v2.all.sort.final","w")
 
-sp4_gff_dict = {}
+sp4_bed_dict = {}
 for line1 in f1.readlines():
 	k = line1.strip().split('\t')[1]
 	v = line1.strip().split('\t')[0]
-	sp4_gff_dict[k] = v
+	sp4_bed_dict[k] = v
 
 for line2 in f2.readlines():
     id1 = line2.strip().split('\t')[3]
     id2 = line2.strip().split('\t')[7]
-    if sp4_gff_dict[id1] != sp4_gff_dict[id2] and int(line2.strip().split('\t')[0]) in more5gene_list:
+    if sp4_bed_dict[id1] != sp4_bed_dict[id2] and int(line2.strip().split('\t')[0]) in more5gene_list:
         f3.write(line2)
     else:
         continue
