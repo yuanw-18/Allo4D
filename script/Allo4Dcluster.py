@@ -69,7 +69,7 @@ df2  = pd.read_csv(path2 + "/sp4_sp2.collinearity.filter.num.1v2.all.sort", sep 
 dfnum2 = df2.blocknum1_1.value_counts() #Series
 more5gene_list = dfnum2[dfnum2 > 5].index.values.tolist()
 
-f1 = open(args.sp4gff,"r")
+f1 = open(args.sp4bed,"r")
 f2 = open(path2 + "/sp4_sp2.collinearity.filter.num.1v2.all.sort","r")
 f3 = open(path2 + "/sp4_sp2.collinearity.filter.num.1v2.all.sort.final","w")
 
