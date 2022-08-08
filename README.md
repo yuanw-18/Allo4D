@@ -19,16 +19,16 @@ conda install -c anaconda pandas
 MCScanX: https://github.com/wyp1125/MCScanX
 
 # Input data
-**allotetraploid**：sp4.pep;sp4.cds;sp4.gff;sp4.genome.fa
+**allotetraploid**：sp4.pep;sp4.cds;sp4.bed;sp4.genome.fa
 
-**relative diploidy**：sp2.pep;sp2.cds;sp2.gff
+**relative diploidy**：sp2.pep;sp2.cds;sp2.bed
 
 **outgroup**：outgroup.pep;outgroup.cds
 
 
 For example data, we obtained four genomes (_Oryza sativa_ (_indica_ group), _Oryza sativa_ (_japonica_ group), _Oryza punctata_, _Leersia perrieri_) in RiceRelativesGD (http://ibi.zju.edu.cn/ricerelativesgd/), and genomes were cut according to the criterion of N50 = 1Mb. The genomes of _Oryza sativa_ (_indica_ group) and _Oryza punctata_ were combined as a putative allotetraploid, _Oryza sativa_ (_japonica_ group) as relative diploid, and _Oryza punctata_ as outgroup.
 
-Be careful, gff file is only four columns: 
+Be careful, bed file is only four columns: 
 ```
 #scaffold gene start end
 R498Chr1.ctg1   indica_OsR498G0100000700.01.T01 17040   23888
@@ -51,7 +51,7 @@ genome file, pep file and cds file are common fasta format.
 ```
 python Allo4Dalign.py -thread 40 \
  -sp4pep sp4.pep -sp2pep sp2.pep \
- -sp4gff sp4.gff -sp2gff sp2.gff \
+ -sp4bed sp4.bed -sp2bed sp2.bed \
  -sp4cds sp4.cds
 ```
 ### Output files (You can check in ./1.Collinear/)
@@ -70,14 +70,14 @@ python Allo4Dalign.py -thread 40 \
   29M Jul  7 14:49 sp4.pep.db.psq
   12M Jul  7 16:19 sp4_sp2.blast
  3.3M Jul  7 16:57 sp4_sp2.collinearity
- 6.7M Jul  7 16:47 sp4_sp2.gff
+ 6.7M Jul  7 16:47 sp4_sp2.bed
   60K Jul  7 16:57 sp4_sp2.html
   28M Jul  7 16:19 sp4_sp4.blast
  2.0M Jul  7 16:57 sp4_sp4.collinearity
  1.4M Jul  7 17:21 sp4_sp4.collinearity.homolog
  1.4M Jul  7 18:50 sp4_sp4.collinearity.homolog.filter
   24M Jul  7 21:26 sp4_sp4.collinearity.homolog.filter.pep
- 4.6M Jul  7 16:50 sp4_sp4.gff
+ 4.6M Jul  7 16:50 sp4_sp4.bed
   36K Jul  7 16:57 sp4_sp4.html
  5.6M Jul 10 09:42 sp4_sp4.ks.txt
  568K Jul  7 16:57 sp4_sp4.tandem
@@ -88,7 +88,7 @@ python Allo4Dalign.py -thread 40 \
 Find the ancient Ks threshold according to the 1.Collinear/Ks_density.png. 
 For example data,Ks threshold = 0.5
 ```
-python Allo4Dcluster.py -kt 0.5 -sp4gff sp4.gff
+python Allo4Dcluster.py -kt 0.5 -sp4bed sp4.bed
 ```
 ### Output files (You can check in ./2.Cluster/)
 ```
@@ -117,7 +117,7 @@ Cluster and tree files.
 ## Setp4:Divide subgenomes.
 ```
 python Allo4Ddivide.py \
- -sp4gff sp4.gff -sp4genome sp4.genome.fa \
+ -sp4bed sp4.bed -sp4genome sp4.genome.fa \
  -sp4pep sp4.pep -sp4cds sp4.cds
 ```
 ### Output files (You can check in ./4.groupAB/ and ./5.result/)
@@ -143,11 +143,11 @@ python Allo4Ddivide.py \
 ```
   35144893 Jul 26 17:25 subA.cds
  343391956 Jul 26 17:25 subA.genome.fa
-   2157791 Jul 26 17:25 subA.gff
+   2157791 Jul 26 17:25 subA.bed
   12521059 Jul 26 17:25 subA.pep
   52915871 Jul 26 17:25 subB.cds
  370110443 Jul 26 17:25 subB.genome.fa
-   2329783 Jul 26 17:25 subB.gff
+   2329783 Jul 26 17:25 subB.bed
   18354505 Jul 26 17:25 subB.pep
 ```
 # Contact me
