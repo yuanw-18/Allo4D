@@ -9,7 +9,7 @@ import re
 
 #print help information
 parser = argparse.ArgumentParser(description='Construct phylogenetic tree within clusters.')
-parser.add_argument("-sp4gff",help="input allotetraploid species gff file")
+parser.add_argument("-sp4bed",help="input allotetraploid species bed file")
 parser.add_argument("-sp4pep",help="input allotetraploid species pep file")
 parser.add_argument("-sp2pep",help="input polidy species pep file")
 parser.add_argument("-outpep",help="input outgroup species pep file")
