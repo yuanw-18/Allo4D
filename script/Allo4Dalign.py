@@ -10,9 +10,9 @@ import pandas as pd
 parser = argparse.ArgumentParser(description='Align allotetraploid and diploid genome data and obtain their collinear relationship.')
 parser.add_argument("-sp4pep",help="input allotetraploid species pep file")
 parser.add_argument("-sp4cds",help="input allotetraploid species cds file")
-parser.add_argument("-sp4gff",help="input allotetraploid species gff file")
+parser.add_argument("-sp4bed",help="input allotetraploid species bed file")
 parser.add_argument("-sp2pep",help="input diploid species pep file")
-parser.add_argument("-sp2gff",help="input diploid species gff file")
+parser.add_argument("-sp2bed",help="input diploid species bed file")
 parser.add_argument("-thread",help="thread number")
 args = parser.parse_args()
 
