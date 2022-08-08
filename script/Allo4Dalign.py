@@ -67,9 +67,9 @@ sp4_sp4bfinal = path1 + "/sp4_sp4.blast"
 os.system("mv %s %s" % (sp4_sp2bfilter,sp4_sp2bfinal))
 os.system("mv %s %s" % (sp4_sp4bfilter,sp4_sp4bfinal))
 
-#gff prepare
-os.system("cat %s %s > %s/sp4_sp2.gff" % (args.sp4gff,args.sp2gff,path1))
-os.system("cp %s %s/sp4_sp4.gff" % (args.sp4gff,path1))
+#bed prepare
+os.system("cat %s %s > %s/sp4_sp2.bed" % (args.sp4bed,args.sp2bed,path1))
+os.system("cp %s %s/sp4_sp4.bed" % (args.sp4bed,path1))
 
 #run MCscan
 os.system("MCScanX %s/sp4_sp2" % (path1))
