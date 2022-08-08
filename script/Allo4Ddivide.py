@@ -7,7 +7,7 @@ import pandas as pd
 
 #print help information
 parser = argparse.ArgumentParser(description='Divide subgenomes.')
-parser.add_argument("-sp4gff",help="input allotetraploid species gff file")
+parser.add_argument("-sp4bed",help="input allotetraploid species bed file")
 parser.add_argument("-sp4pep",help="input allotetraploid species pep file")
 parser.add_argument("-sp4cds",help="input allotetraploid species cds file")
 parser.add_argument("-sp4genome",help="input allotetraploid genome fasta file")
@@ -27,7 +27,7 @@ os.system("grep '(sp41,sp42)' %s|cut -f 1 > %s" % (path3 + "/all.treefile.bootst
 
 f1 = open(path4 + "/group_A_B.txt","r")
 f2 = open(path4 + "/group_B_A.txt","r")
-f3 = open(args.sp4gff,"r")
+f3 = open(args.sp4bed,"r")
 f4 = open(path2 + "/sp4_sp2.1v2.cluster.number","r")
 f5 = open(path4 + "/groupAB.result","w")
 
@@ -143,7 +143,7 @@ f3.close()
 
 #divide
 f1 = open(path4 + "/group.txt","r")
-f2 = open(args.sp4gff,"r")
+f2 = open(args.sp4bed,"r")
 f3 = open(path4 + "/subA.scaffold.name","w")
 f4 = open(path4 + "/subB.scaffold.name","w")
 f5 = open(path4 + "/subA.gene.name","w")
@@ -180,12 +180,12 @@ f6.close()
 os.mkdir(path + '/5.result')
 path5 = path + "/5.result"
 
-#gff
+#bed
 f1 = open(path4 + "/subA.scaffold.name","r")
 f2 = open(path4 + "/subB.scaffold.name","r")
-f3 = open(args.sp4gff,"r")
-f4 = open(path5 + "/subA.gff","w")
-f5 = open(path5 + "/subB.gff","w")
+f3 = open(args.sp4bed,"r")
+f4 = open(path5 + "/subA.bed","w")
+f5 = open(path5 + "/subB.bed","w")
 
 subA_list = []
 for line1 in f1.readlines():
