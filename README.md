@@ -51,7 +51,7 @@ genome file, pep file and cds file are common fasta format.
 ```
 python Allo4Dalign.py -thread 40 \
  -sp4pep sp4.pep -sp2pep sp2.pep \
- -sp4gff sp4.bed -sp2gff sp2.bed \
+ -sp4bed sp4.bed -sp2bed sp2.bed \
  -sp4cds sp4.cds
 ```
 ### Output files (You can check in ./1.Collinear/)
@@ -117,7 +117,7 @@ Cluster and tree files.
 ## Setp4:Divide subgenomes.
 ```
 python Allo4Ddivide.py \
- -sp4gff sp4.bed -sp4genome sp4.genome.fa \
+ -sp4bed sp4.bed -sp4genome sp4.genome.fa \
  -sp4pep sp4.pep -sp4cds sp4.cds
 ```
 ### Output files (You can check in ./4.groupAB/ and ./5.result/)
