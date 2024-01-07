@@ -88,7 +88,7 @@ python Allo4Dalign.py -thread 40 \
 Find the ancient Ks threshold according to the 1.Collinear/Ks_density.png. 
 For example data,Ks threshold = 0.5
 ```
-python Allo4Dcluster.py -kt 0.5 -sp4gff sp4.bed
+python Allo4Dcluster.py -kt 0.5 -sp4bed sp4.bed
 ```
 ### Output files (You can check in ./2.Cluster/)
 ```
