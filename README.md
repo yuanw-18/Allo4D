@@ -11,10 +11,12 @@ Allo4D is a pipeline to distinguish allotetraploid subgenomes based scaffold lev
 **7.seqtk**
 **8.biopython**
 **9.pandas**
+**10.Gblocks**
 ```
 conda install -c bioconda blast mafft kakscalculator2 iqtree seqkit seqtk
 conda install -c conda-forge biopython
 conda install -c anaconda pandas
+conda install bioconda::gblocks
 ```
 MCScanX: https://github.com/wyp1125/MCScanX
 
