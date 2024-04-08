@@ -105,6 +105,10 @@ python Allo4Dcluster.py -kt 0.5 -sp4bed sp4.bed
 706K Jul 26 15:32 sp4_sp2.collinearity.filter.num.1v2.sp41
 629K Jul 26 15:32 sp4_sp2.collinearity.filter.num.1v2.sp42
 ```
+sp4_sp2.collinearity.filter.num file: Please make sure the diploid gene in the third column, and the allotetraploid gene in the fourth column. If the order is reversed, amend line 45 in Allo4Dcluster.py.
+```
+os.system("paste %s/block_number.txt %s/sp4_sp2.collinearity.filter|awk -v FS='\t' -v OFS='\t' '{print $1,$2,$5,$4}' > %s/sp4_sp2.collinearity.filter.num" % (path2,path2,path2))
+```
 
 
 ## Step3: Construct phylogenetic tree within clusters.
